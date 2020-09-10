@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/dash.css">
+    <title>Password Manager</title>
+</head>
+<body>
+    <div class="back"></div>
+    <div class="stuff">
+        <div class="topBar">
+            <h1>
+                Open Pwd Manager
+            </h1>
+        </div>
+        <div class="credentials">
+            <% if (credentials != []) { credentials.forEach((credential) => { %>
+                <div class="credential">
+                    <h3><%- credential.user %> <span class="pwd" style="color: #3d3d3d;"> --> <%- credential.password %></span></h3>
+                </div><br>
+            <% })} %>
+        </div>
+
+        <button class="newCredentials">
+            Add Account
+        </button>
+    </div>
+    <div class="drop"></div>
+    <div class="newEntry">
+        <button class="close">close X</button>
+        <h1>Add Account</h1>
+        <form action="/newaccount" method="post">
+            <input type="text" name="username" id="username" placeholder="username">
+            <input type="password" name="password" id="password" placeholder="password">
+            <input type="submit" value="Confirm">
+        </form>
+    </div>
+
+    <script src="/js/dashUI.js"></script>
+</body>
+</html>
